@@ -1,0 +1,52 @@
+body{
+                display: flex;
+                flex-direction: column;
+                vertical-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: rgb(25, 25, 25);
+                color: white;
+                align-items: center;
+                padding: 20px;
+            }
+            p{
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+            .move-button{
+                width: 120px;
+                height: 120px;
+                border-radius: 60px;
+                margin-right: 10px;
+                margin-bottom: 50px;
+                background-color: transparent;
+                border: 3px solid white;
+                cursor: pointer;
+                transition: background-color 0.1s;
+            }
+            .move-button:hover{
+                background-color: rgb(73, 73, 73);
+            }
+            .move-icon{
+               height: 50px;
+            }
+            .title{
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .score{
+                display: inline-block;
+                margin-top: 60px;
+            }
+            .result{
+                font-size: 25px;
+                font-weight: bold;
+            }
+            #resetScore{
+                background-color: white;
+                font-size: 15px;
+                padding: 8px 15px;
+                color: rgb(25, 25, 25);
+                border-radius: 2px;
+                border: none;
+                cursor: pointer;
+            }
