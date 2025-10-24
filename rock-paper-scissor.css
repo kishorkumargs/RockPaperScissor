@@ -1,52 +1,101 @@
 body{
-                display: flex;
-                flex-direction: column;
-                vertical-align: center;
-                font-family: Arial, Helvetica, sans-serif;
-                background-color: rgb(25, 25, 25);
-                color: white;
-                align-items: center;
-                padding: 20px;
-            }
-            p{
-                vertical-align: middle;
-                margin-right: 10px;
-            }
-            .move-button{
-                width: 120px;
-                height: 120px;
-                border-radius: 60px;
-                margin-right: 10px;
-                margin-bottom: 50px;
-                background-color: transparent;
-                border: 3px solid white;
-                cursor: pointer;
-                transition: background-color 0.1s;
-            }
-            .move-button:hover{
-                background-color: rgb(73, 73, 73);
-            }
-            .move-icon{
-               height: 50px;
-            }
-            .title{
-                font-size: 30px;
-                font-weight: bold;
-            }
-            .score{
-                display: inline-block;
-                margin-top: 60px;
-            }
-            .result{
-                font-size: 25px;
-                font-weight: bold;
-            }
-            #resetScore{
-                background-color: white;
-                font-size: 15px;
-                padding: 8px 15px;
-                color: rgb(25, 25, 25);
-                border-radius: 2px;
-                border: none;
-                cursor: pointer;
-            }
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(25, 25, 25);
+    color: white;
+    align-items: center;
+    padding: 20px;
+}
+p{
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 550px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.container h2 p {
+    margin-top: 3.5vh;
+}
+.move-button{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: 3px solid white;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+.move-button:active {
+    background-color: rgb(73, 73, 73);
+    box-shadow: 0 0 4px #aaa;
+    transform: scale(0.90);
+}
+.move-icon{
+    height: 50px;
+}
+.title{
+    font-size: 30px;
+    font-weight: bold;
+}
+.score{
+    display: inline-block;
+    margin-top: 7vh;
+}
+.result{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 7vh;
+}
+#resetScore{
+    background-color: white;
+    padding: 8px 15px;
+    color: rgb(25, 25, 25);
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .container{
+        width: 100%;
+    }
+    .move-button{
+        width: 20vw;
+        height: 20vw;
+        border-radius: 50%;
+    }
+    .move-button:active {
+        background-color: rgb(73, 73, 73);
+        box-shadow: 0 0 4px #aaa;
+        transform: scale(0.95);
+    }
+    .container p{
+        font-size: 14px;
+    }
+    .container h2 p{
+        font-size: 1.2rem;
+    }
+    .move-icon {
+        height: 8vw;
+    }
+}
+
+@media (hover: hover) {
+    .move-button:hover{
+        background-color: rgb(73, 73, 73);
+    }
+}
