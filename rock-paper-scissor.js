@@ -8,6 +8,7 @@ let loses = document.getElementById('lose');
 let ties = document.getElementById('tie');
 let resultText = document.querySelector('.result');
 let moves = document.querySelector('.moves');
+const toggleBtn = document.getElementById('theme-toggled')
 
 // Load saved score
 wins.textContent = score.win;
@@ -104,3 +105,23 @@ function playGame(playerMove){
     localStorage.setItem('moves', JSON.stringify(currentMove));
     localStorage.setItem('score', JSON.stringify(score));
 }
+
+// Toggle theme
+if(localStorage.getItem('theme') === 'light'){
+    document.body.classList.add('light-theme');
+    toggleBtn.classList.remove('toggled');
+    toggleBtn.textContent = 'Dark Mode';
+}
+// Event listener for toggle button
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    toggleBtn.classList.toggle('toggled');
+
+    if(document.body.classList.contains('light-theme')){
+        toggleBtn.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+    } else {
+        toggleBtn.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+    }
+});
