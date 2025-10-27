@@ -6,3 +6,4 @@ Features:
 - Persistent score saving using browser storage
 - Responsive design that adapts to mobile and desktop screens
 - Click-based and touch-optimized controls for seamless play
+- Sound effects for win / lose / tie and button click
