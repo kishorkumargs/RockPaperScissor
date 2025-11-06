@@ -1,0 +1,115 @@
+:root {
+    --bg-color-dark: rgb(25, 25, 25);
+    --text-color-dark: white;
+    --bg-color-light: white;
+    --text-color-light: rgb(25, 25, 25);
+}
+body {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    font-family: 'Roboto','Inter', sans-serif;
+}
+body.light-theme {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+body.light-theme .signup-container{
+    background-color: rgba(209, 209, 209, 0.5);
+    color: var(--text-color-light);
+    border-color: black;
+}
+body.light-theme .signup-container input {
+    border: 2px solid rgb(25, 25, 25);
+}
+.signup-container input {
+    border: 2px solid white;
+}
+.signup-container {
+    max-width: 500px;
+    margin: 60px auto;
+    background-color: rgba(52, 52, 52, 0.5);
+    border: 3px solid white;
+    color: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+.text {
+    color: var(--text-color-dark);
+}
+body.light-theme .text {
+    color: var(--text-color-light);
+}
+.form-control {
+    margin-bottom: 15px;
+}
+.form-check {
+    margin-bottom: 15px;
+}
+.text-primary {
+    color: #0044cc !important;
+}
+body.light-theme .btn{
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+.btn {
+    background-color: var(--bg-color-light);
+    margin-left: 130px;
+    max-width: 150px;
+    color: var(--text-color-light);
+    border: none;
+}
+.btn:hover {
+    background-color: rgb(55, 55, 55);
+    color: white;
+}
+.toggle-theme{
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+.toggle-theme:hover {
+    background-color: rgb(200, 200, 200);
+}
+.toggled{
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+.toggled:hover{
+    background-color: rgb(55, 55, 55);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .signup-container{
+        max-width: 85vw;
+        max-height: 90vh;
+        font-size: 13px;
+    }
+    .btn {
+        margin-left: 80px;
+    }
+}
+/* Animations */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

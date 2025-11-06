@@ -1,0 +1,111 @@
+:root {
+    --bg-color-dark: rgb(25, 25, 25);
+    --text-color-dark: white;
+    --bg-color-light: white;
+    --text-color-light: rgb(25, 25, 25);
+}
+body {
+    background-color: var(--bg-color-dark);
+    font-family: 'Roboto','Inter', sans-serif;
+}
+body.light-theme {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+body.light-theme .login-container {
+    background-color: rgba(209, 209, 209, 0.5);
+    color: var(--text-color-light);
+    border-color: black;
+}
+body.light-theme .login-container input {
+    border: 2px solid rgb(25, 25, 25);
+}
+.login-container input {
+    border: 2px solid white;
+}
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    background-color: rgba(52, 52, 52, 0.5);
+    color: white;
+    padding: 30px;
+    border: 3px solid white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-control {
+margin-bottom: 15px;
+}
+.form-check {
+margin-bottom: 15px;
+}
+.heading {
+    font-weight: bold;
+}
+.text-primary {
+color: #0044cc !important;
+}
+.btn-container {
+   padding-left: 119px;
+}
+body.light-theme .btn {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark)
+}
+.btn {
+    max-width: 90px;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    border: none;
+}
+.btn:hover {
+    background-color: rgb(55, 55, 55);
+}
+.toggle-theme{
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+.toggle-theme:hover {
+    background-color: rgb(200, 200, 200);
+}
+.toggled{
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+.toggled:hover{
+    background-color: rgb(55, 55, 55);
+}
+.text {
+    color: var(--text-color-dark);
+}
+body.light-theme .text{
+    color: var(--text-color-light);
+}
+/* Animations */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

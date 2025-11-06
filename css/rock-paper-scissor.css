@@ -179,20 +179,27 @@ body.light-theme #restart-btn {
 }
 
 /* Buttons */
-.toggle-theme, .close-btn{
+.toggle-theme, .close-btn, #logout-btn{
     padding: 8px 15px;
     font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 .toggle-theme {
     position: absolute;
     top: 10px;
     right: 10px;
     
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+#logout-btn {
+    position: absolute;
+    top: 50px;
+    right: 10px;
     background-color: var(--bg-color-light);
     color: var(--text-color-light);
 }
@@ -221,6 +228,9 @@ body.light-theme #restart-btn {
 }
 .close-btn.toggled:hover{
     background-color: rgb(200, 200, 200);
+}
+.moves {
+    margin: 3px;
 }
 .move-button{
     width: 120px;
@@ -262,7 +272,7 @@ body.light-theme .container .move-button:hover{
 #resetScore:hover{
     background-color: rgb(200, 200, 200);
 }
-body.light-theme #resetScore{
+body.light-theme #resetScore, body.light-theme #logout-btn{
     background-color: var(--bg-color-dark);
     color: var(--text-color-dark);
 }
