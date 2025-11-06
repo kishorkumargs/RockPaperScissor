@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self' data: blob: https://*.firebaseio.com https://*.googleapis.com https://www.gstatic.com https://cdn.jsdelivr.net;
+        script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.firebaseio.com https://*.googleapis.com https://cdn.jsdelivr.net;
+        style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+        connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://www.gstatic.com;
+        img-src 'self' data: blob:;
+        font-src 'self' https://fonts.gstatic.com;
+        ">
+        <meta name="description" content="Play Rock Paper Scissors online against the computer! Track your score, rank up, and have fun!">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homepage</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <nav>
+            <div class="top-bar">
+                <p id="heading">Rock paper scissors</p>
+                <div class="nav-links">
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#about">About</a></p>
+                </div>
+                <div class="btn-container">
+                    <button class="toggle-theme" id="theme-toggled">Light Mode</button>
+                    <button class="call-to-action">Login</button>
+                    <button class="call-to-action">Sign Up</button>
+                </div>
+            </div>
+        </nav>
+        <section id="home" class="container">
+            <h1>Welcome to Rock Paper Scissors Game!</h1>
+            <p>Challenge yourself and have fun playing the classic game of Rock Paper Scissors against the computer.</p>
+            <div class="btn-container">
+                <button id="play-btn">Play Now</button>
+                <button id="learn-btn">How to play</button>
+            </div>
+        </section>
+
+        
+        <section id="about" class="container">
+            <h2>About the Game</h2>
+            <p>Rock Paper Scissors is a simple hand game that has been played for centuries. The game is played between two players, where each player simultaneously forms one of three shapes with an outstretched hand. The possible shapes are rock, paper, and scissors. The winner is determined based on the rules: rock crushes scissors, scissors cuts paper, and paper covers rock.</p>
+            <p>In this web-based version, you can play against the computer and keep track of your score and rank as you progress through the game. Enjoy the fun and excitement of Rock Paper Scissors!</p>
+        </section>
+
+        <section class="container how-to-play-section">
+            <h2>How to Play</h2>
+            <ol>
+                <li>Select your move: rock, paper, or scissors.</li>
+                <li>The computer will randomly select its move.</li>
+                <li>Compare moves to determine the winner:
+                    <ul>
+                        <li>Rock crushes Scissors</li>
+                        <li>Scissors cuts Paper</li>
+                        <li>Paper covers Rock</li>
+                    </ul>
+                </li>
+                <li>Your score will be updated based on the outcome:
+                    <ul>
+                        <li>Win: +3 points</li>
+                        <li>Tie: +1 point</li>
+                        <li>Loss: -1 point</li>
+                    </ul>
+                </li>
+                <li>Try to reach the Pro rank by accumulating points!</li>
+            </ol>
+        </section>
+
+        <footer class="container">
+            <p>&copy; 2025 Rock Paper Scissors Game. All rights reserved.</p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
