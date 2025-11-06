@@ -69,7 +69,7 @@ body.light-theme .btn{
     background-color: rgb(55, 55, 55);
     color: white;
 }
-.toggle-theme{
+.toggle-theme, #home-btn{
     padding: 8px 15px;
     font-size: 15px;
     font-weight: bold;
@@ -79,12 +79,21 @@ body.light-theme .btn{
     transition: background-color 0.2s ease;
     position: absolute;
     top: 10px;
-    right: 10px;
     
     background-color: var(--bg-color-light);
     color: var(--text-color-light);
 }
-.toggle-theme:hover {
+.toggle-theme {
+    right: 10px;
+}
+#home-btn {
+    left: 10px;
+}
+body.light-theme #home-btn {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+.toggle-theme:hover, #home-btn {
     background-color: rgb(200, 200, 200);
 }
 .toggled{
