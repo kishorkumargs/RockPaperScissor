@@ -239,8 +239,12 @@ function playGame(playerMove){
 // Toggle theme
 if(localStorage.getItem('theme') === 'light'){
     document.body.classList.add('light-theme');
-    toggleBtn.classList.remove('toggled');
+    toggleBtn.classList.add('toggled');
     toggleBtn.textContent = 'Dark Mode';
+}  else {
+  document.body.classList.remove('light-theme');
+  toggleBtn.textContent = 'Light Mode';
+  toggleBtn.classList.remove('toggled');
 }
 // Event listener for toggle button
 toggleBtn.addEventListener('click', () => {
