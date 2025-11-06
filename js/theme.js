@@ -3,6 +3,17 @@ const btnClickSound = new Howl({
     volume: 0.8
 });
 
+document.addEventListener('click', unlockAudioContext, { once: true });
+document.addEventListener('touchstart', unlockAudioContext, { once: true });
+
+function unlockAudioContext() {
+  if (Howler.ctx && Howler.ctx.state === 'suspended') {
+    Howler.ctx.resume().then(() => {
+      console.log('✅ Audio context unlocked by user gesture');
+    });
+  }
+}
+
 const btns = document.querySelectorAll('.btn');
 const toggleBtn = document.getElementById('theme-toggled');
 

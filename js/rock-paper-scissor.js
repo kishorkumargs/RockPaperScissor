@@ -47,6 +47,17 @@ const highScoreSound = new Howl({
     volume: 0.8
 })
 
+document.addEventListener('click', unlockAudioContext, { once: true });
+document.addEventListener('touchstart', unlockAudioContext, { once: true });
+
+function unlockAudioContext() {
+  if (Howler.ctx && Howler.ctx.state === 'suspended') {
+    Howler.ctx.resume().then(() => {
+      console.log('✅ Audio context unlocked by user gesture');
+    });
+  }
+}
+
 // Load saved score
 wins.textContent = score.win;
 loses.textContent = score.lose;
@@ -251,7 +262,6 @@ toggleBtn.addEventListener('click', () => {
     btnClickSound.play();
     document.body.classList.toggle('light-theme');
     toggleBtn.classList.toggle('toggled');
-    closeBtn.classList.toggle('toggled');
 
     if(document.body.classList.contains('light-theme')){
         toggleBtn.textContent = 'Dark Mode';
@@ -269,9 +279,16 @@ closeBtn.addEventListener('click', () => {
     btnClickSound.play();
     popUpContainer.classList.add('hidden');
     setTimeout(() => {
+        const playBtnSound = new Howl({
+            src: ['sounds/play.wav'],
+            volume: 0.8
+        })
+        playBtnSound.play();
+    }, 400);
+    setTimeout(() => {
         popUpContainer.style.display = 'none';
         popUpContainer.classList.remove('hidden');
-    }, 500);
+    }, 700);
 });
 
 if(!localStorage.getItem('firstVisit')){
@@ -282,7 +299,7 @@ if(!localStorage.getItem('firstVisit')){
     popUpContainer.classList.add('hidden');
     popUpContainer.classList.add('hide-model');
 }
-
+localStorage.removeItem('firstVisit');
 // Event listener for restart button in game over modal
 restartBtn.addEventListener('click', () => {
     btnClickSound.play();
