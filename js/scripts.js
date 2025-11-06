@@ -41,7 +41,7 @@ playBtn.addEventListener('click', () => {
         playBtnSound.play();
     }, 400);
     setTimeout(() => {
-        document.location.href = '../rock-paper-scissor.html';
+        document.location.href = 'login.html';
     }, 1000);
 });
 

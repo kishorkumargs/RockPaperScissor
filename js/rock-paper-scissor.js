@@ -1,3 +1,37 @@
+window.addEventListener('DOMContentLoaded', () => {
+    window.auth.onAuthStateChanged(user => {
+        if (!user) {
+            // No logged-in user, redirect
+            window.location = 'login.html';
+        } else {
+            // User is logged in, optionally update localStorage
+            window.db.collection('users').doc(user.uid).get().then(doc => {
+                const userData = doc.exists ? doc.data() : {};
+                if(!localStorage.getItem('user')){
+                    localStorage.setItem('user', JSON.stringify({
+                        uid: user.uid,
+                        name: userData.name || '',
+                        highScore: userData.highScore || 0,
+                        totalGames: userData.totalGames || 0
+                    }));
+                }
+                console.log(userData.highScore);
+                document.getElementById('high_score_main').textContent = userData.highScore;
+                document.getElementById('high_score_modal').textContent = userData.highScore;
+                console.log(localStorage.getItem('user'));
+            });
+        }
+    });
+    const showPopup = sessionStorage.getItem('showPopup');
+    if (showPopup) {
+        popUpContainer.classList.remove('hide-model');
+        popUpContainer.classList.remove('hidden');
+        sessionStorage.removeItem('showPopup'); 
+    } else {
+        popUpContainer.classList.add('hide-model');
+        popUpContainer.classList.add('hidden');
+    }
+});
 // Variables
 const score = JSON.parse(localStorage.getItem('score')) || {
                     win: 0,
@@ -46,7 +80,10 @@ const highScoreSound = new Howl({
     src:['sounds/high_score.wav'],
     volume: 0.8
 })
-
+const playBtnSound = new Howl({
+    src: ['sounds/play.wav'],
+    volume: 0.8
+})
 document.addEventListener('click', unlockAudioContext, { once: true });
 document.addEventListener('touchstart', unlockAudioContext, { once: true });
 
@@ -89,7 +126,7 @@ const facts = [
     `The game is known as "Jan-Ken" in Japan.`,
     `It's used to make decisions fairly in many countries!`,
     "In 2005, a man won a $20 million art deal using Rock Paper Scissors!",
-    "Did you know that this game first appeared in China in the 17th century? Yes, it was not invented in Europe or America but in Asia. Europe started to play this game only in 19th century",
+    "This game first appeared in China in the 17th century. Yes, it was not invented in Europe or America but in Asia. Europe started to play this game only in 19th century",
     "Statistics say that people usually choose Scissors in the first round and Rock in the second",
     "There is a robot developed in Japan which wins with 100% chance. It analyzes movement of your hand muscles to predict what choice you'll show",
     "The World Rock Paper Scissors Championship has been held annually since 2002",
@@ -162,6 +199,36 @@ function playSound(result){
     else if(result === 'Tie') tieSound.play();
 }
 
+async function saveScoreToFirestore() {
+    const user = window.auth.currentUser;
+    if (!user) return; // no logged-in user
+    const userRef = window.db.collection("users").doc(user.uid);
+
+    await userRef.get().then(doc => {
+        if (doc.exists) {
+        const data = doc.data();
+        const newHigh = Math.max(data.highScore || 0, highScore);
+        const total = (data.totalGames || 0) + 1;
+
+        return userRef.update({
+            highScore: newHigh,
+            totalGames: total
+        });
+        } else {
+        // First time user, create new entry
+        return userRef.set({
+            email: user.email,
+            highScore: highScore,
+            totalGames: 1
+        });
+        }
+    }).then(() => {
+        console.log("✅ Score updated in Firestore after 50 moves!");
+    }).catch(err => {
+        console.error("⚠️ Error updating Firestore:", err);
+    });
+}
+
 // Play game
 function playGame(playerMove){
     // Check if a player reached 50 tries
@@ -177,6 +244,7 @@ function playGame(playerMove){
             }
             document.getElementById('high_score_main').textContent = highScore;
             document.getElementById('high_score_modal').textContent = highScore;
+            saveScoreToFirestore();
         }, 700);
         return;
     }
@@ -247,16 +315,6 @@ function playGame(playerMove){
     localStorage.setItem('score', JSON.stringify(score));
 }
 
-// Toggle theme
-if(localStorage.getItem('theme') === 'light'){
-    document.body.classList.add('light-theme');
-    toggleBtn.classList.add('toggled');
-    toggleBtn.textContent = 'Dark Mode';
-}  else {
-  document.body.classList.remove('light-theme');
-  toggleBtn.textContent = 'Light Mode';
-  toggleBtn.classList.remove('toggled');
-}
 // Event listener for toggle button
 toggleBtn.addEventListener('click', () => {
     btnClickSound.play();
@@ -279,10 +337,6 @@ closeBtn.addEventListener('click', () => {
     btnClickSound.play();
     popUpContainer.classList.add('hidden');
     setTimeout(() => {
-        const playBtnSound = new Howl({
-            src: ['sounds/play.wav'],
-            volume: 0.8
-        })
         playBtnSound.play();
     }, 400);
     setTimeout(() => {
@@ -291,15 +345,6 @@ closeBtn.addEventListener('click', () => {
     }, 700);
 });
 
-if(!localStorage.getItem('firstVisit')){
-    popUpContainer.classList.remove('hide-model')
-    popUpContainer.classList.remove('hidden');
-    localStorage.setItem('firstVisit', 'true');
-} else {
-    popUpContainer.classList.add('hidden');
-    popUpContainer.classList.add('hide-model');
-}
-localStorage.removeItem('firstVisit');
 // Event listener for restart button in game over modal
 restartBtn.addEventListener('click', () => {
     btnClickSound.play();
