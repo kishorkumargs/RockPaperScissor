@@ -222,11 +222,11 @@ body.light-theme #restart-btn {
 .toggled:hover{
     background-color: rgb(55, 55, 55);
 }
-.close-btn.toggled{
+body.light-theme .close-btn{
     background-color: var(--bg-color-light);
     color: var(--text-color-light);
 }
-.close-btn.toggled:hover{
+body.light-theme .close-btn:hover{
     background-color: rgb(200, 200, 200);
 }
 .moves {
@@ -322,6 +322,13 @@ body.light-theme #resetScore:hover{
         left: 7%;
         top: -5%;
         width: 80%;
+    }
+    .title {
+        margin-top: 60px;
+    }
+    .modal-content {
+        width: 80vw;
+        max-height: 85vh;
     }
     .move-button{
         width: 20vw;

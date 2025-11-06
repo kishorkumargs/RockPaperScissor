@@ -52,7 +52,9 @@ margin-bottom: 15px;
 color: #0044cc !important;
 }
 .btn-container {
-   padding-left: 119px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 body.light-theme .btn {
     background-color: var(--bg-color-dark);
@@ -98,6 +100,15 @@ body.light-theme .btn {
 body.light-theme .text{
     color: var(--text-color-light);
 }
+/* Responsive design */
+@media (max-width: 600px) {
+    .login-container{
+        max-width: 85vw;
+        max-height: 100vh;
+        font-size: 13px;
+    }
+}
+
 /* Animations */
 @keyframes fadeIn{
     from{
