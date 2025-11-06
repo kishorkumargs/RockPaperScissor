@@ -13,7 +13,7 @@ loginForm.addEventListener('submit', (e) => {
         const user = userCredential.user;
         alert("Login successful");
         localStorage.setItem('userEmail', user.email); 
-        window.location.href = '../../rock-paper-scissor.html';
+        window.location.href = '../rock-paper-scissor.html';
     })
     .catch(err =>{
         alert("Invalid credentials", err.message);

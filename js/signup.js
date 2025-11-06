@@ -18,7 +18,7 @@ signupForm.addEventListener('submit', (e) => {
         const user = userCredentials.user;
         console.log('User signed up:', user);
         alert('Account created successfully!');
-        window.location.href = './login.html';
+        window.location.href = 'login.html';
     })
     .catch(err => {
         alert(err.message);

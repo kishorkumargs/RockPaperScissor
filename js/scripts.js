@@ -1,10 +1,10 @@
 // Sounds
 const btnClickSound = new Howl({
-    src:['../../sounds/click.mp3'],
+    src:['../sounds/click.mp3'],
     volume: 0.8
 });
 const playBtnSound = new Howl({
-    src:['../../sounds/play.wav'],
+    src:['../sounds/play.wav'],
     volume: 0.8
 })
 
@@ -30,7 +30,7 @@ playBtn.addEventListener('click', () => {
         playBtnSound.play();
     }, 400);
     setTimeout(() => {
-        document.location.href = '../../rock-paper-scissor.html';
+        document.location.href = '../rock-paper-scissor.html';
     }, 1000);
 });
 

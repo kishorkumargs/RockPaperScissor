@@ -1,5 +1,5 @@
 const btnClickSound = new Howl({
-    src: ['../../sounds/click.mp3'],
+    src: ['../sounds/click.mp3'],
     volume: 0.8
 });
 

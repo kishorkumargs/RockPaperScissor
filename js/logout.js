@@ -5,7 +5,7 @@ const logoutBtn = document.getElementById('logout-btn');
 logoutBtn.addEventListener('click', () => {
     auth.signOut().then(() => {
         localStorage.removeItem('userEmail');
-        window.location.href = "public/html/login.html";
+        window.location.href = "login.html";
     }).catch((error) => {
         alert("Logout failed!");
     });
