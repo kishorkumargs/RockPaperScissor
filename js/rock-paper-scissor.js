@@ -1,3 +1,4 @@
+const popUpContainer = document.getElementById('pop-up-container');
 window.addEventListener('DOMContentLoaded', () => {
     window.auth.onAuthStateChanged(user => {
         if (!user) {
@@ -102,8 +103,6 @@ ties.textContent = score.tie;
 total.textContent = score.total;
 rank.textContent = score.rank;
 tries.textContent = 50 - score.tries;
-document.getElementById('high_score_main').textContent = highScore;
-document.getElementById('high_score_modal').textContent = highScore;
 
 // Load saved result and moves
 resultText.textContent = JSON.parse(localStorage.getItem('resultText')) || '';
@@ -330,7 +329,6 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 // Event listener for close button in pop-up
-const popUpContainer = document.getElementById('pop-up-container');
 const closeBtn = document.querySelector('.close-btn');
 
 closeBtn.addEventListener('click', () => {
