@@ -1,12 +1,8 @@
 # 🎮 Rock Paper Scissors
 Rock Paper Scissors is a fun and interactive **web-based game** built using **HTML**, **CSS**, and **JavaScript**, enhanced with Firebase Authentication and Firestore Database for secure user management and persistent gameplay data. Play against the computer and test your luck in this digital version of the timeless hand game- now with sound effects, animation and theme toggling! The sleek, minimalist design and responsive layout ensure smooth gameplay across all devices — from desktops to mobile screens.
 
----
-
 ## Live Demo
 **Play now:** [Rock Paper Scissors Game](https://rockpaperscissor-ddb1e.web.app)
-
----
 
 ## Features:
 
@@ -20,8 +16,6 @@ Rock Paper Scissors is a fun and interactive **web-based game** built using **HT
 - **Persistent Session Handling** with Firebase Auth
 - **Click-based** and **touch-optimized** controls for seamless play
 
----
-
 ## Tech Stack
 
 | Layer | Technology |
@@ -32,8 +26,6 @@ Rock Paper Scissors is a fun and interactive **web-based game** built using **HT
 | Database | Firebase Firestore |
 | Hosting | Firebase Hosting |
 | Sound | Howler.js | 
-
----
 
 ## How It Works
 
@@ -51,8 +43,6 @@ Rock Paper Scissors is a fun and interactive **web-based game** built using **HT
 4. **Responsive & Thematic Design**  
    The layout adapts to any screen size, and users can toggle between light and dark themes seamlessly.
 
----
-
 ## Future Enhancements
 - Add Multiplayer mode with real-time sync
 - Global leaderboard for all users
@@ -60,8 +50,6 @@ Rock Paper Scissors is a fun and interactive **web-based game** built using **HT
 - Progressive Web App (PWA) support for offline gameplay
 - Enhanced animations
 - Integrating AI as opponent
-
----
 
 ## What I learned
 
@@ -71,13 +59,9 @@ Rock Paper Scissors is a fun and interactive **web-based game** built using **HT
 - Working with Howler.js for game sound effects
 - Deploying and managing a production-ready app on Firebase Hosting
 
----
-
 ## Author
 
 **Kishor Kumar G S**
 
 **Email:** kishorkumargs85@gmail.com
 **LinkedIn:** Kishor Kumar G S
-
----
